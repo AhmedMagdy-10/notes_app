@@ -38,7 +38,7 @@ Widget noteItem() => Container(
             child: Text(
               'July23,  2023',
               style:
-                  TextStyle(color: Colors.black.withOpacity(0.4), fontSize: 16),
+                  TextStyle(color: Colors.black.withOpacity(0.5), fontSize: 16),
             ),
           ),
         ],

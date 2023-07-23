@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/widgets/notes_item.dart';
+import 'package:notes/widgets/notes_list_view.dart';
 
 import 'custom_appBar.dart';
 
@@ -8,13 +8,15 @@ Widget notesViewBody() => Padding(
       child: Column(
         children: [
           const SizedBox(
-            height: 25,
+            height: 50,
           ),
           customAppBar(),
           const SizedBox(
             height: 20,
           ),
-          noteItem(),
+          Expanded(
+            child: notesListView(),
+          ),
         ],
       ),
     );
