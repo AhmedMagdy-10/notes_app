@@ -11,9 +11,6 @@ Widget notesViewBody() => Padding(
             height: 50,
           ),
           customAppBar(),
-          const SizedBox(
-            height: 20,
-          ),
           Expanded(
             child: notesListView(),
           ),
