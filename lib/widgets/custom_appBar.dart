@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'Custom_icon.dart';
 
-Widget customAppBar() => Row(
+Widget customAppBar({required String title, required IconData icon}) => Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          'Notes ',
-          style: TextStyle(fontSize: 25),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 25),
         ),
-        customIcon(),
+        customIcon(icon: icon),
       ],
     );
