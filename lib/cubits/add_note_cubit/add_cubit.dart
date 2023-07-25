@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+
 import 'package:notes/cubits/add_note_cubit/add_notes_states.dart';
 import '../../model/note_model.dart';
 
