@@ -2,7 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../constants/constants.dart';
 
-Widget customTextField({required String hint, int maxLines = 1}) => TextField(
+Widget customTextField({
+  required String hint,
+  int maxLines = 1,
+  void Function(String?)? onSaved,
+}) =>
+    TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Field is required';
+        } else {
+          return null;
+        }
+      },
       cursorColor: primaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
