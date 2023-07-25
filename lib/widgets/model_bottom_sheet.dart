@@ -15,6 +15,7 @@ class AddBottomSheet extends StatelessWidget {
           child: BlocConsumer<AddNotesCubit, AddNoteStates>(
               listener: (context, state) {
         if (state is SuccessState) {
+          Navigator.pop(context);
         } else if (State is ErrorState) {}
       }, builder: (context, state) {
         return ModalProgressHUD(
