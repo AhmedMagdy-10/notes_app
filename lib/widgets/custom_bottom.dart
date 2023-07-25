@@ -3,9 +3,11 @@ import 'package:notes/constants/constants.dart';
 
 // ignore: must_be_immutable
 class customBottom extends StatelessWidget {
-  String? text;
-  void Function()? onTap;
-  customBottom({this.text, this.onTap});
+  const customBottom(
+      {super.key, this.text, this.onTap, this.isloading = false});
+  final String? text;
+  final bool? isloading;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,17 @@ class customBottom extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
-            child: Text(
-          'Add',
-          style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-        )),
+            child: isloading!
+                ? const CircularProgressIndicator(
+                    color: Colors.black,
+                  )
+                : const Text(
+                    'Add',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  )),
       ),
     );
   }
