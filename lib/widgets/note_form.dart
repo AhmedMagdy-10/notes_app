@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'custom_bottom.dart';
 import 'custom_text_field.dart';
 
-class addNoteForm extends StatefulWidget {
-  const addNoteForm({
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
     super.key,
   });
 
   @override
-  State<addNoteForm> createState() => _addNoteFormState();
+  State<AddNoteForm> createState() => _addNoteFormState();
 }
 
-class _addNoteFormState extends State<addNoteForm> {
+class _addNoteFormState extends State<AddNoteForm> {
   GlobalKey<FormState> formKey = GlobalKey();
   String? title, subtitle;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
