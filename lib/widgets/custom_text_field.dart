@@ -6,9 +6,11 @@ Widget customTextField({
   required String hint,
   int maxLines = 1,
   void Function(String?)? onSaved,
+  final Function(String?)? onChange,
 }) =>
     TextFormField(
       onSaved: onSaved,
+      onChanged: onChange,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Field is required';
