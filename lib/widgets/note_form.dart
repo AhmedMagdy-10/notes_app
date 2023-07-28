@@ -5,6 +5,7 @@ import 'package:notes/cubits/add_note_cubit/add_cubit.dart';
 import 'package:notes/cubits/add_note_cubit/add_notes_states.dart';
 import 'package:notes/model/note_model.dart';
 
+import 'color_Item.dart';
 import 'custom_bottom.dart';
 import 'custom_text_field.dart';
 
@@ -14,10 +15,10 @@ class AddNoteForm extends StatefulWidget {
   });
 
   @override
-  State<AddNoteForm> createState() => _addNoteFormState();
+  State<AddNoteForm> createState() => _AddNoteFormState();
 }
 
-class _addNoteFormState extends State<AddNoteForm> {
+class _AddNoteFormState extends State<AddNoteForm> {
   GlobalKey<FormState> formKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -49,7 +50,11 @@ class _addNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
           ),
           const SizedBox(
-            height: 50,
+            height: 20,
+          ),
+          const ColorsList(),
+          const SizedBox(
+            height: 30,
           ),
           BlocBuilder<AddNotesCubit, AddNoteStates>(builder: (context, state) {
             return customBottom(
@@ -60,10 +65,11 @@ class _addNoteFormState extends State<AddNoteForm> {
                   var currentDate = DateTime.now();
                   var formatDate = DateFormat('dd-mm-yyyy').format(currentDate);
                   var modelNote = NoteModel(
-                      title: title!,
-                      subTitle: subtitle!,
-                      date: formatDate,
-                      color: Colors.cyan.value);
+                    title: title!,
+                    subTitle: subtitle!,
+                    date: formatDate,
+                    color: BlocProvider.of<AddNotesCubit>(context).color!.value,
+                  );
                   BlocProvider.of<AddNotesCubit>(context).addNote(modelNote);
                 } else {
                   autovalidateMode = AutovalidateMode.always;
