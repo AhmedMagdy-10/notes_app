@@ -7,6 +7,7 @@ import '../../model/note_model.dart';
 
 class AddNotesCubit extends Cubit<AddNoteStates> {
   AddNotesCubit() : super(InitailState());
+  NoteModel? note;
   Color? color = Colors.blue;
   void addNote(NoteModel note) async {
     note.color = color!.value;
